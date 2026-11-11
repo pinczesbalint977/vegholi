@@ -47,8 +47,8 @@ Telefonon a nyitórész legalább egy képernyő magas, és szükség esetén to
 ## Publikálás GitHub Pages segítségével
 
 1. A `pinczesbalint977/vegholi` tároló `main` ágában az `index.html` és az oldal többi fájlja közvetlenül a tároló gyökerében legyen.
-2. Nyissa meg: **Settings → Pages → Source: Deploy from a branch → main → /(root) → Save**. Ez a [GitHub hivatalos publikálási folyamata](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
-3. Várja meg a sikeres publikálást. Csak aktiválás és sikeres telepítés után várható a `https://pinczesbalint977.github.io/vegholi/` cím; megosztás előtt nyissa meg és ellenőrizze.
+2. A **Settings → Pages → Source** beállítása **GitHub Actions**. A `.github/workflows/pages.yml` a `main` ág minden feltöltése után automatikusan publikál. Beállítási forrás: [GitHub Pages dokumentáció](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
+3. Kézi indítás: **Actions → Publish VOSTONE to GitHub Pages → Run workflow**. Várja meg a zöld `deploy` eredményt, majd ellenőrizze a `https://pinczesbalint977.github.io/vegholi/` oldalt. A sikeres Git-feltöltés önmagában még nem igazolja az éles oldal frissülését.
 4. Az első űrlappróbánál a `vostone2000@gmail.com` címzett hagyja jóvá a FormSubmit aktiváló emailjét, majd ellenőrizze az újabb üzenet beérkezését.
 
 A projektoldal `/vegholi/` almappában fut: a `404.html` gyökérhez viszonyított kép-, stílus- és oldalhivatkozásainak itt `/vegholi/` előtag kell (például `/vegholi/css/style.css`). Saját domainre, domain-gyökérbe költözéskor az előtagot módosítsa. Az éles URL beállítását a konfigurációban és a SEO-fájlokban is végezze el a lenti útmutató szerint.
