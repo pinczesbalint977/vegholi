@@ -691,6 +691,22 @@ body.menu-open .site-header.compact-nav .primary-nav { visibility: visible; opac
 }
 
 /* ========================= */
+/* SZOLGÁLTATÁSOK: MOBILON NINCS BELSŐ FÜGGŐLEGES GÖRGETÉS */
+/* ========================= */
+@media (max-width: 959px) {
+  .services.full-section { height: auto; min-height: 100vh; min-height: 100svh; overflow: visible; }
+  .services > .container { height: auto; overflow: visible; }
+  .services .services-grid { flex: none; grid-template-rows: auto; overflow-y: hidden; scrollbar-width: none; }
+  .services .services-grid::-webkit-scrollbar { display: none; }
+  .services .service-card { height: auto; }
+  .services .service-photo { height: clamp(220px, 32vw, 320px); flex: 0 0 auto; }
+  .services .service-body { height: auto; max-height: none; overflow: visible; }
+}
+@media (max-width: 699px) {
+  .services .service-photo { height: clamp(220px, 62vw, 320px); }
+}
+
+/* ========================= */
 /* BETÖLTŐ ÉS FINOM ANIMÁCIÓK */
 /* ========================= */
 .site-loader { position: fixed; inset: 0; z-index: 1000; display: none; place-content: center; justify-items: center; gap: 20px; background: var(--beige-light); opacity: 1; transition: opacity .32s ease; }
