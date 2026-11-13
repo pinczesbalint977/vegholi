@@ -435,7 +435,7 @@
       document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonical);
       ['meta[property="og:image"]', 'meta[name="twitter:image"]'].forEach(selector => {
         const meta = document.querySelector(selector);
-        if (meta) meta.content = new URL(meta.dataset.image || 'assets/images/hero_eredm%C3%A9ny.webp', base).href;
+        if (meta) meta.content = new URL(meta.dataset.image || meta.content || 'assets/images/gallery%20(41).webp', base).href;
       });
     }
     if (config.searchConsoleVerification) {

@@ -3,8 +3,8 @@
 /* ========================= */
 // Nyilvános beállítások: jelszó vagy titkos API-kulcs ide soha ne kerüljön.
 window.VOSTONE_CONFIG = {
-  // Végleges HTTPS-cím, záró perjellel; például: https://sajat-domain.hu/
-  siteUrl: '',
+  // Az éles weboldal kanonikus címe.
+  siteUrl: 'https://www.vostone.hu/',
   form: {
     mode: 'live',
     provider: 'formsubmit',

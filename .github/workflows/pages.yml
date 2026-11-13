@@ -25,6 +25,22 @@ jobs:
         uses: actions/checkout@v4
       - name: Configure Pages
         uses: actions/configure-pages@v5
+      - name: Keep GitHub preview out of search results
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import os, re
+          repository = os.environ.get('GITHUB_REPOSITORY', 'pinczesbalint977/vegholi').split('/')[-1]
+          preview_root = '/' if repository.endswith('.github.io') else f'/{repository}/'
+          for page in Path('.').glob('*.html'):
+              html = page.read_text(encoding='utf-8')
+              html = re.sub(r'<meta name="robots" content="[^"]*">', '<meta name="robots" content="noindex, follow">', html, flags=re.I)
+              if page.name == '404.html':
+                  html = html.replace('href="/', f'href="{preview_root}').replace('src="/', f'src="{preview_root}')
+              page.write_text(html, encoding='utf-8')
+          Path('robots.txt').write_text('User-agent: *\nAllow: /\n', encoding='utf-8')
+          Path('sitemap.xml').unlink(missing_ok=True)
+          PY
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:

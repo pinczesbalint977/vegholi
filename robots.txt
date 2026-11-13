@@ -1,6 +1,4 @@
-# BEMUTATÓ: az éles domain és a tartalom véglegesítéséig nincs indexelés.
-# Élesítéskor: Disallow: / helyett Allow: /, majd az alábbi domain cseréje.
 User-agent: *
-Disallow: /
+Allow: /
 
-Sitemap: https://DOMAIN-BEALLITANDO.invalid/sitemap.xml
+Sitemap: https://www.vostone.hu/sitemap.xml

@@ -7,11 +7,11 @@ Magyar nyelvű, natív HTML/CSS/JavaScript bemutatkozó oldal. Nincs build, kere
 - **Megnyitás:** kattintson az `index.html` fájlra.
 - **Szövegek és telefonszám:** az `index.html` fájlban írhatók át.
 - **Színek és betűméretek:** a `css/style.css` fájlban, szekciókra bontva találhatók.
-- **Nyitókép:** cserélje az `assets/images/hero.webp` fájlt.
+- **Nyitókép:** cserélje az `assets/images/gallery (41).webp` fájlt.
 - **Rólunk képe:** jelenleg az `assets/images/gallery (1).webp`. Saját portréhoz töltsön fel külön fájlt, majd módosítsa a `.about-visual` képének `src` és `alt` értékét az `index.html` fájlban.
 - **Galériaképek:** az `assets/images/gallery (1).webp`–`gallery (50).webp` fájlok cserélhetők.
 - **Űrlap és domain:** a `js/config.js` fájlban állítható be; a részletek lent olvashatók.
-- **Feltöltés:** a `vostone` mappa tartalmát kell a tárhelyre másolni.
+- **Rackhost-feltöltés:** a kész `vostone-rackhost.zip` tartalmát bontsa ki a domain dokumentumgyökerébe; [rövid útmutató](RACKHOST-FELTOLTES.md).
 
 ## Így alakítsa a saját oldalává
 
@@ -29,7 +29,7 @@ Magyar nyelvű, natív HTML/CSS/JavaScript bemutatkozó oldal. Nincs build, kere
 
    A fejléc és lábléc logója: `assets/icons/new logo1.svg` (a HTML-ben: `new%20logo1.svg`). A böngészőfül külön, kis méretre egyszerűsített ikonja: `assets/icons/favicon.svg`. A logó felirata rajzolt görbékből áll, ezért SVG-szerkesztővel módosítható, vagy az egész fájl lecserélhető.
 6. **Tartsa röviden a tartalmat.** A fő szekciók alapból egy képernyőnyi területet kapnak (`100vh`, mobilon `100svh`). A Rólunk rész kis képernyőn a „Tudj meg többet” gombbal bővíthető: utána nyitva marad és természetes magasságúra nő. A Kapcsolat rész minden adatot és az egész űrlapot megjeleníti, szükség esetén magasabbra nő; egyiknél sincs külön belső görgetőablak.
-7. **Élesítsen a lenti útmutató szerint:** saját domain a HTML-ekben, `js/config.js`, sitemap és robots fájlban; jogi adatok véglegesítése; FormSubmit aktiválása és fogadási próba a `info@vostone.hu` címen. Az űrlap már `live` módban van. Az indexelést csak a tartalom véglegesítése után engedélyezze. Titkos kulcs ne kerüljön JavaScriptbe.
+7. **Élesítés:** az oldal a `https://www.vostone.hu/` címre van előkészítve, indexelhető főoldallal. Töltse fel a Rackhost-csomagot, véglegesítse a tényleges jogi adatokat, majd aktiválja és próbálja ki a FormSubmit-küldést az `info@vostone.hu` címen. Titkos kulcs ne kerüljön JavaScriptbe.
 
 ## Animációk
 
@@ -40,9 +40,9 @@ A `js/animations.js` kezeli a betöltőt és a görgetéskor megjelenő elemeket
 Telefonon a nyitórész legalább egy képernyő magas, és szükség esetén tovább nő. A kép minimum 220 px magas; a mobilos arányok a CSS „MOBIL NYITÓOLDAL” blokkjában állíthatók.
 
 - Helyi megtekintés: `index.html`, vagy a `vostone` mappából `python -m http.server 8080`, majd `http://localhost:8080`.
-- A mappa tartalmát töltse a Rackhost domain dokumentumgyökerébe; a `vostone` szülőmappát ne hozza létre a tárhelyen.
-- HTTPS legyen aktív, HTTP és alternatív domain irányítson a választott végleges HTTPS-domainre.
-- A tárhely kezelőfelületén állítsa be a `/404.html` egyedi hibaoldalt valódi **404** HTTP-státusszal. Apache esetén a szerver konfigurációjába illeszkedő `ErrorDocument 404 /404.html` használható. A 404 oldal gyökérhez viszonyított útvonalai domain-gyökér telepítést feltételeznek; almappás telepítésnél módosítandók.
+- A feltöltendő csomag a `vostone-rackhost.zip`. Kibontás után az `index.html`, a `.htaccess`, a HTML/SEO-fájlok, valamint a `css`, `js`, `assets` mappák közvetlenül a domain dokumentumgyökerében legyenek, külön `vostone` almappa nélkül. A rejtett `.htaccess` fájlt is másolja fel.
+- Előbb működő SSL szükséges a `vostone.hu` és `www.vostone.hu` nevekre. A `.htaccess` a HTTP és www nélküli címeket, valamint az `index.html` címet a `https://www.vostone.hu/` alakra irányítja; az ismeretlen URL valódi 404 választ kap.
+- A pontos dokumentumgyökeret és DNS-célértékeket a Rackhost felületén ellenőrizze. A meglévő levelezési MX/TXT rekordokat hagyja meg. Az oldalhoz adatbázis és PHP nem szükséges. Részletek: [RACKHOST-FELTOLTES.md](RACKHOST-FELTOLTES.md).
 
 ## Publikálás GitHub Pages segítségével
 
@@ -51,7 +51,7 @@ Telefonon a nyitórész legalább egy képernyő magas, és szükség esetén to
 3. Kézi indítás: **Actions → Publish VOSTONE to GitHub Pages → Run workflow**. Várja meg a zöld `deploy` eredményt, majd ellenőrizze a `https://pinczesbalint977.github.io/vegholi/` oldalt. A sikeres Git-feltöltés önmagában még nem igazolja az éles oldal frissülését.
 4. Az első űrlappróbánál a `info@vostone.hu` címzett hagyja jóvá a FormSubmit aktiváló emailjét, majd ellenőrizze az újabb üzenet beérkezését.
 
-A projektoldal `/vegholi/` almappában fut: a `404.html` gyökérhez viszonyított kép-, stílus- és oldalhivatkozásainak itt `/vegholi/` előtag kell (például `/vegholi/css/style.css`). Saját domainre, domain-gyökérbe költözéskor az előtagot módosítsa. Az éles URL beállítását a konfigurációban és a SEO-fájlokban is végezze el a lenti útmutató szerint.
+A GitHub Pages munkafolyamat előnézetet készít, `noindex` beállítással; a Rackhost-forrás a `https://www.vostone.hu/` éles domainre készül. A projektoldal `/vegholi/` almappájához a 404-hivatkozásokat az előnézeti közzététel igazítja. A GitHub-beállítások és egy `CNAME` fájl önmagukban nem állítják át a Rackhost DNS-rekordjait.
 
 ## Galériaképek kezelése
 
@@ -66,7 +66,7 @@ A galéria nagyobb képernyőn **6, telefonon 4 képet mutat oldalanként**. A s
 
 ## Tartalom és képek
 
-Az öt szolgáltatáskártya képe: **Hidegburkolás** → `assets/images/gallery/large-format.webp`; **Épített polcok** → `assets/images/gallery/bathroom.webp`; **Melegburkolás** → `assets/images/gallery/floor.webp`; **Felület-előkészítés** → `assets/images/surface-preparation.webp`; **Nyílászáró-beépítés** → `assets/images/windows.webp`. Saját fotónál a fájlt és az `alt` képleírást cserélje.
+Az öt szolgáltatáskártya képe: **Hidegburkolás** → `assets/images/szolg1_eredmény.webp`; **Épített polcok** → `assets/images/szolg2_eredmény.webp`; **Melegburkolás** → `assets/images/szolg3_eredmény.webp`; **Felület-előkészítés** → `assets/images/szolg4_eredmény.webp`; **Nyílászáró-beépítés** → `assets/images/szolg5_eredmény.webp`. Saját fotónál a fájlt és az `alt` képleírást cserélje.
 
 - A kezdőlap és az űrlap feliratai: `index.html`; színek, töréspontok: `css/style.css`; működés: `js/script.js`.
 - A logó és favicon saját, módosítható SVG az `assets/icons` mappában.
@@ -76,10 +76,10 @@ Az öt szolgáltatáskártya képe: **Hidegburkolás** → `assets/images/galler
 ## Élesítés előtti adatok és SEO
 
 1. Az adatkezelési tájékoztatóban a FormSubmiton keresztüli űrlapküldés, a címzett `info@vostone.hu`, valamint a tényleges szolgáltatók és megőrzési szabályok szerepeljenek. Analitika alapból nincs bekapcsolva. Tárhelyre költözéskor ellenőrizze a szolgáltató és a naplózás adatait, valamint a postafiók működését.
-2. A `js/config.js` `siteUrl` értéke a végleges HTTPS-domain legyen záró `/` jellel. **A HTML fájlokban, `robots.txt`-ben és `sitemap.xml`-ben is cserélje az összes `https://DOMAIN-BEALLITANDO.invalid` helyőrzőt.** A JavaScriptes beállítás nem helyettesíti a szerverről érkező metaadatokat a keresők és közösségi előnézetek számára.
-3. Az indexelés kezdetben tiltott. Csak végleges tartalommal törölje a főoldal `noindex` beállítását és állítsa a `robots.txt` szabályát `Allow: /` értékre. A `robots.txt` tiltása nem hozzáférés-védelem. A 404 oldal maradjon `noindex`; a jogi oldalak indexelése véglegesítés után opcionális. Ha indexelhetők, adja őket a sitemaphez.
+2. A HTML canonical és közösségi metaadatai, a `js/config.js`, a `robots.txt` és a `sitemap.xml` a `https://www.vostone.hu/` címre vannak előkészítve. Későbbi domainváltáskor ezeket együtt módosítsa; a JavaScriptes beállítás nem helyettesíti a HTML metaadatait.
+3. A kész éles főoldal indexelhető, a keresőrobotokat a `robots.txt` engedi. A köszönőoldal és a 404 maradjon `noindex`. A GitHub-előnézet indexelését a munkafolyamat külön tiltja; ez nem hozzáférés-védelem és nem garantál keresőbeli megjelenést.
 4. A JSON-LD-ben csak ismert, ellenőrzött vállalkozási adat szerepeljen; kitalált értékelés, cím vagy szolgáltatási terület ne kerüljön bele.
-5. Search Console: a `searchConsoleVerification` beállítással a metaellenőrzés előkészített. A biztos, JavaScript nélküli ellenőrzéshez a Google által adott metaelemet közvetlenül a HTML `head` részébe tegye, vagy használjon a Search Console-ban megadott DNS-rekordot. A végleges sitemapet ott küldje be.
+5. Search Console: hozzon létre **Domain-tulajdont** `vostone.hu` néven, majd a Google által adott új igazoló DNS-rekordot vegye fel a domain tényleges DNS-kezelőjében a meglévő rekordok megtartásával. A `searchConsoleVerification` JavaScript-beállítás nem Domain-igazolás. Igazolás után küldje be a `https://www.vostone.hu/sitemap.xml` címet. [Google: tulajdonjog igazolása](https://support.google.com/webmasters/answer/9008080?hl=hu), [sitemap beküldése](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap).
 
 ## Az űrlap aktiválása és használata
 
