@@ -12,10 +12,14 @@ window.VOSTONE_CONFIG = {
     successPage: 'koszonjuk.html',
     timeoutMs: 15000
   },
+  cookies: {
+    storageKey: 'vostone-cookie-consent',
+    version: 1,
+    maxAgeDays: 180
+  },
   analytics: {
     // Bekapcsolás előtt az adatkezeles.html oldalt is frissítse a mérés részleteivel.
-    measurementId: '', // Opcionális GA4-azonosító: G-XXXXXXXXXX.
-    storageKey: 'vostone-analytics-consent'
+    measurementId: '' // Opcionális GA4-azonosító: G-XXXXXXXXXX.
   },
   searchConsoleVerification: '' // Opcionális Google Search Console ellenőrzőkód.
 };

@@ -103,9 +103,13 @@ Az űrlap AJAX-kéréssel küld a szolgáltatónak. Sikeres HTTP-válasz és `su
 
 Címzettváltáskor az `endpoint`, az oldalak emailhivatkozásai és az adatkezelési tájékoztató is frissítendő; az új cím aktiválását ismét ellenőrizze. A feladó válaszcíme a látogató emailmezőjéből származik. Részletek: [FormSubmit dokumentáció](https://formsubmit.co/documentation), [AJAX-útmutató](https://formsubmit.co/ajax-documentation).
 
-## Opcionális GA4
+## Sütibeállítások és opcionális GA4
 
-Az `analytics.measurementId` üres, ezért alapból nincs analitika vagy Google-kérés. Valós `G-...` mérési azonosító esetén a hozzájárulási felület megjelenik; a mérési kód csak kifejezett elfogadás után tölthető be. Az elutasítás az oldal használatát nem korlátozza. A lábléc beállításaival a döntés módosítható, illetve visszavonható. Bekapcsolás előtt egészítse ki az adatkezelési tájékoztatót a tényleges mérési adatokkal, sütikkel, megőrzéssel, szolgáltatói és adattovábbítási feltételekkel.
+A `js/cookies.js` hozza létre a reszponzív hozzájárulási sávot és a részletes beállítási ablakot. Az első döntés előtt a sáv a betöltő után jelenik meg; elfogadás, elutasítás és egyedi mentés is használható. A lábléc **Sütibeállítások** gombjával a döntés később módosítható vagy visszavonható.
+
+A szükséges preferencia a `localStorage` **`vostone-cookie-consent`** kulcsára kerül: változat, szükséges működés, analitikai döntés, mérési azonosító, mentési és lejárati idő. Az utolsó kifejezett mentéstől **180 napig** érvényes. Új változat, új mérési azonosító, lejárat, hibás vagy törölt bejegyzés új választást kér; tiltott tárhelynél csak az aktuális oldalon őrzi a döntést. A megnyitott böngészőlapok összehangolják a változásokat.
+
+Az `analytics.measurementId` jelenleg üres: az analitikai kapcsoló inaktív, nincs GA-kód vagy Google-követési kérés. Bekapcsolás előtt az `adatkezeles.html` tájékoztatóját egészítse ki a tényleges mérési adatokkal, szolgáltatóval, sütikkel, megőrzéssel és adattovábbítási feltételekkel, majd adjon meg érvényes `G-...` azonosítót a `js/config.js` fájlban. A mérés csak ezután, kifejezett hozzájárulásra indulhat. Az elutasítást és visszavonást is ellenőrizze; a weboldal és az űrlap ezek mellett is használható.
 
 ## Ellenőrzés
 
