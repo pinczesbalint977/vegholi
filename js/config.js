@@ -8,7 +8,7 @@ window.VOSTONE_CONFIG = {
   form: {
     mode: 'live',
     provider: 'formsubmit',
-    endpoint: 'https://formsubmit.co/ajax/vostone2000@gmail.com',
+    endpoint: 'https://formsubmit.co/ajax/info@vostone.hu',
     successPage: 'koszonjuk.html',
     timeoutMs: 15000
   },

@@ -1,6 +1,6 @@
 # VOSTONE
 
-Magyar nyelvű, natív HTML/CSS/JavaScript bemutatkozó oldal. Nincs build, keretrendszer vagy telepítendő futtatási függőség. A kapcsolatfelvételi űrlap FormSubmit AJAX-küldésre van beállítva, címzettje **vostone2000@gmail.com**; az első használathoz a címzett aktiválása szükséges. A bézs megjelenés a kapott referenciaképet követi.
+Magyar nyelvű, natív HTML/CSS/JavaScript bemutatkozó oldal. Nincs build, keretrendszer vagy telepítendő futtatási függőség. A kapcsolatfelvételi űrlap FormSubmit AJAX-küldésre van beállítva, címzettje **info@vostone.hu**; az első használathoz a címzett aktiválása szükséges. A bézs megjelenés a kapott referenciaképet követi.
 
 ## Gyors segítség a szerkesztéshez
 
@@ -29,7 +29,7 @@ Magyar nyelvű, natív HTML/CSS/JavaScript bemutatkozó oldal. Nincs build, kere
 
    A fejléc és lábléc logója: `assets/icons/new logo1.svg` (a HTML-ben: `new%20logo1.svg`). A böngészőfül külön, kis méretre egyszerűsített ikonja: `assets/icons/favicon.svg`. A logó felirata rajzolt görbékből áll, ezért SVG-szerkesztővel módosítható, vagy az egész fájl lecserélhető.
 6. **Tartsa röviden a tartalmat.** A fő szekciók alapból egy képernyőnyi területet kapnak (`100vh`, mobilon `100svh`). A Rólunk rész kis képernyőn a „Tudj meg többet” gombbal bővíthető: utána nyitva marad és természetes magasságúra nő. A Kapcsolat rész minden adatot és az egész űrlapot megjeleníti, szükség esetén magasabbra nő; egyiknél sincs külön belső görgetőablak.
-7. **Élesítsen a lenti útmutató szerint:** saját domain a HTML-ekben, `js/config.js`, sitemap és robots fájlban; jogi adatok véglegesítése; FormSubmit aktiválása és fogadási próba a `vostone2000@gmail.com` címen. Az űrlap már `live` módban van. Az indexelést csak a tartalom véglegesítése után engedélyezze. Titkos kulcs ne kerüljön JavaScriptbe.
+7. **Élesítsen a lenti útmutató szerint:** saját domain a HTML-ekben, `js/config.js`, sitemap és robots fájlban; jogi adatok véglegesítése; FormSubmit aktiválása és fogadási próba a `info@vostone.hu` címen. Az űrlap már `live` módban van. Az indexelést csak a tartalom véglegesítése után engedélyezze. Titkos kulcs ne kerüljön JavaScriptbe.
 
 ## Animációk
 
@@ -49,7 +49,7 @@ Telefonon a nyitórész legalább egy képernyő magas, és szükség esetén to
 1. A `pinczesbalint977/vegholi` tároló `main` ágában az `index.html` és az oldal többi fájlja közvetlenül a tároló gyökerében legyen.
 2. A **Settings → Pages → Source** beállítása **GitHub Actions**. A `.github/workflows/pages.yml` a `main` ág minden feltöltése után automatikusan publikál. Beállítási forrás: [GitHub Pages dokumentáció](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 3. Kézi indítás: **Actions → Publish VOSTONE to GitHub Pages → Run workflow**. Várja meg a zöld `deploy` eredményt, majd ellenőrizze a `https://pinczesbalint977.github.io/vegholi/` oldalt. A sikeres Git-feltöltés önmagában még nem igazolja az éles oldal frissülését.
-4. Az első űrlappróbánál a `vostone2000@gmail.com` címzett hagyja jóvá a FormSubmit aktiváló emailjét, majd ellenőrizze az újabb üzenet beérkezését.
+4. Az első űrlappróbánál a `info@vostone.hu` címzett hagyja jóvá a FormSubmit aktiváló emailjét, majd ellenőrizze az újabb üzenet beérkezését.
 
 A projektoldal `/vegholi/` almappában fut: a `404.html` gyökérhez viszonyított kép-, stílus- és oldalhivatkozásainak itt `/vegholi/` előtag kell (például `/vegholi/css/style.css`). Saját domainre, domain-gyökérbe költözéskor az előtagot módosítsa. Az éles URL beállítását a konfigurációban és a SEO-fájlokban is végezze el a lenti útmutató szerint.
 
@@ -75,7 +75,7 @@ Az öt szolgáltatáskártya képe: **Hidegburkolás** → `assets/images/galler
 
 ## Élesítés előtti adatok és SEO
 
-1. Az adatkezelési tájékoztatóban a FormSubmiton keresztüli űrlapküldés, a címzett `vostone2000@gmail.com`, valamint a tényleges szolgáltatók és megőrzési szabályok szerepeljenek. Analitika alapból nincs bekapcsolva. Tárhelyre költözéskor ellenőrizze a szolgáltató és a naplózás adatait, valamint a postafiók működését.
+1. Az adatkezelési tájékoztatóban a FormSubmiton keresztüli űrlapküldés, a címzett `info@vostone.hu`, valamint a tényleges szolgáltatók és megőrzési szabályok szerepeljenek. Analitika alapból nincs bekapcsolva. Tárhelyre költözéskor ellenőrizze a szolgáltató és a naplózás adatait, valamint a postafiók működését.
 2. A `js/config.js` `siteUrl` értéke a végleges HTTPS-domain legyen záró `/` jellel. **A HTML fájlokban, `robots.txt`-ben és `sitemap.xml`-ben is cserélje az összes `https://DOMAIN-BEALLITANDO.invalid` helyőrzőt.** A JavaScriptes beállítás nem helyettesíti a szerverről érkező metaadatokat a keresők és közösségi előnézetek számára.
 3. Az indexelés kezdetben tiltott. Csak végleges tartalommal törölje a főoldal `noindex` beállítását és állítsa a `robots.txt` szabályát `Allow: /` értékre. A `robots.txt` tiltása nem hozzáférés-védelem. A 404 oldal maradjon `noindex`; a jogi oldalak indexelése véglegesítés után opcionális. Ha indexelhetők, adja őket a sitemaphez.
 4. A JSON-LD-ben csak ismert, ellenőrzött vállalkozási adat szerepeljen; kitalált értékelés, cím vagy szolgáltatási terület ne kerüljön bele.
@@ -89,14 +89,14 @@ A `js/config.js` jelenlegi beállítása:
 form: {
   mode: 'live',
   provider: 'formsubmit',
-  endpoint: 'https://formsubmit.co/ajax/vostone2000@gmail.com',
+  endpoint: 'https://formsubmit.co/ajax/info@vostone.hu',
   successPage: 'koszonjuk.html',
   timeoutMs: 15000
 }
 ```
 
 1. Töltse fel az oldalt, majd HTTP(S)-címen nyissa meg; a `file://` megnyitás küldési próbára nem megfelelő.
-2. Küldjön egy rövid tesztüzenetet. Az első használat aktiváló emailt indít a `vostone2000@gmail.com` címre. A címzett nyissa meg, és kattintson a **Confirm / Activate** gombra; ellenőrizze a spam mappát is. Ezt a lépést a [FormSubmit hivatalos beállítási útmutatója](https://formsubmit.co/) írja le.
+2. Küldjön egy rövid tesztüzenetet. Az első használat aktiváló emailt indít a `info@vostone.hu` címre. A címzett nyissa meg, és kattintson a **Confirm / Activate** gombra; ellenőrizze a spam mappát is. Ezt a lépést a [FormSubmit hivatalos beállítási útmutatója](https://formsubmit.co/) írja le.
 3. Aktiválás után az éles HTTP(S)-domainről küldjön újabb próbát, és a postafiókban is ellenőrizze a megérkezést. A konfiguráció bekötése önmagában nem igazolja az email kézbesítését. A fejlesztés során nem küldtünk éles tesztüzenetet.
 
 Az űrlap AJAX-kéréssel küld a szolgáltatónak. Sikeres HTTP-válasz és `success: true` vagy `success: 'true'` visszaigazolás után a látogató a `koszonjuk.html` oldalra jut. Szolgáltatói hiba, 15 másodperces időtúllépés vagy internetkimaradás esetén hibaüzenetet és telefonos/emailes kapcsolatfelvételi lehetőséget kap; a kitöltött értékek megmaradnak, automatikus újraküldés nincs. A sikeres visszaigazolás a szolgáltató fogadását jelzi, a kézbesítést a címzett postafiókjában kell ellenőrizni.
